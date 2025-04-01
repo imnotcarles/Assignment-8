@@ -15,23 +15,25 @@ public class Dictionary {
             inputStream = new BufferedReader(new FileReader("dictionary.txt"));
 
             while ((line = inputStream.readLine()) != null) {
-               dictionary.add(line);
+                dictionary.add(line);
             }
 
-            System.out.println("Please input a sentence in English: ");
+            System.out.println("Please enter a sentence in English: ");
             String sentence = keyboard.nextLine();
-            String[] input = sentence.split(" ");
+            System.out.println("Here is a spell check of your sentence: ");
             keyboard.close();
+
+            String[] input = sentence.split(" ");
 
             for (int i = 0; i < input.length; i++) {
                 if (dictionary.contains(input[i])) {
-                    System.out.println(input[i] + "<valid>");
+                    System.out.println(i + 1 + ". " + input[i] + " <valid>");
                 } else {
-                    System.out.println(input[i] + "<invalid>");
+                    System.out.println(i + 1 + ". " + input[i] + " <invalid>");
                 }
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("Error opening file");
+        } catch (FileNotFoundException exception) {
+            System.out.println("Error opening file.");
         } finally {
             if (inputStream != null) {
                 inputStream.close();
