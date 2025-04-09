@@ -23,13 +23,13 @@ public class Dictionary {
             System.out.println("Here is a spell check of your sentence: ");
             keyboard.close();
 
-            String[] input = sentence.split(" ");
+            String[] words = sentence.split(" ");
 
-            for (int i = 0; i < input.length; i++) {
-                if (dictionary.contains(input[i])) {
-                    System.out.println(i + 1 + ". " + input[i] + " <valid>");
+            for (int i = 0; i < words.length; i++) {
+                if (dictionary.contains(words[i])) {
+                    System.out.println(i + 1 + ". " + words[i] + " <valid>");
                 } else {
-                    System.out.println(i + 1 + ". " + input[i] + " <invalid>");
+                    System.out.println(i + 1 + ". " + words[i] + " <invalid>");
                 }
             }
         } catch (FileNotFoundException exception) {
